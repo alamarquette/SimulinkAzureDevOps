@@ -21,6 +21,9 @@ steps:
     testResultsPDF: test-results/results.pdf
     testResultsJUnit: test-results/results.xml
     codeCoverageCobertura: code-coverage/coverage.xml
+  env:
+    MATHWORKS_TOKEN: $(MATHWORKS_TOKEN)
+    MATHWORKS_ACCOUNT: $(MATHWORKS_ACCOUNT)
 - task: PublishBuildArtifacts@1
   inputs:
     pathToPublish: test-results/results.pdf
