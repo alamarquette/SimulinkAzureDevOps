@@ -16,15 +16,16 @@ steps:
 - task: InstallMATLAB@0
   inputs:
     release: R2023a
-- task: RunMATLABCommand@0
+- task: RunMATLABTests@0
   inputs:
-    command: runtests('myTest/testOne')
+    testResultsSimulinkTest: test-results/results.mldatx
+    modelCoverageCobertura: model-coverage/coverage.xml
   env:
     MATHWORKS_TOKEN: $(MATHWORKS_TOKEN)
     MATHWORKS_ACCOUNT: $(MATHWORKS_ACCOUNT)
 - task: PublishBuildArtifacts@1
   inputs:
-    pathToPublish: test-results/results.pdf
+    pathToPublish: test-results/results.mldatx
 - task: PublishTestResults@2
   condition: succeededOrFailed()
   inputs:
@@ -33,4 +34,4 @@ steps:
 - task: PublishCodeCoverageResults@1
   inputs:
     codeCoverageTool: Cobertura
-    summaryFileLocation: code-coverage/coverage.xml
+    summaryFileLocation: model-coverage/coverage.xml
