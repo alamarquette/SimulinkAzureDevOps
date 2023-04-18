@@ -18,7 +18,7 @@ steps:
     release: R2023a
 - task: RunMATLABCommand@0
   inputs:
-    command: runMySimulinkTests
+    command: runtests('myTest/testOne','GenerateBaselines',true)
   env:
     MATHWORKS_TOKEN: $(MATHWORKS_TOKEN)
     MATHWORKS_ACCOUNT: $(MATHWORKS_ACCOUNT)
