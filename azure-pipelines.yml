@@ -18,6 +18,8 @@ steps:
     release: R2023a
 - task: RunMATLABTests@0
   inputs:
+    testResultsPDF: test-results/results.pdf
+    testResultsJUnit: test-results/results.xml
     modelCoverageCobertura: model-coverage/coverage.xml
   env:
     MATHWORKS_TOKEN: $(MATHWORKS_TOKEN)
@@ -29,7 +31,7 @@ steps:
 - task: PublishTestResults@2
   condition: succeededOrFailed()
   inputs:
-    testResultsFiles: test-results/results.pdf
+    testResultsFiles: test-results/results.xml
 
 - task: PublishCodeCoverageResults@1
   condition: succeededOrFailed()
