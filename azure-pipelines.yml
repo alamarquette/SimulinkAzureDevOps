@@ -19,6 +19,9 @@ steps:
 - task: RunMATLABCommand@0
   inputs:
     command: runMySimulinkTests
+  env:
+    MATHWORKS_TOKEN: $(MATHWORKS_TOKEN)
+    MATHWORKS_ACCOUNT: $(MATHWORKS_ACCOUNT)
 - task: PublishBuildArtifacts@1
   inputs:
     pathToPublish: test-results/results.pdf
