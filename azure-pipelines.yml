@@ -16,15 +16,9 @@ steps:
 - task: InstallMATLAB@0
   inputs:
     release: R2022b
-- task: RunMATLABTests@0
+- task: RunMATLABCommand@0
   inputs:
-    selectByFolder: myTest
-    testResultsPDF: test-results/results.pdf
-    testResultsJUnit: test-results/results.xml
-    codeCoverageCobertura: code-coverage/coverage.xml
-  env:
-    MATHWORKS_TOKEN: $(MATHWORKS_TOKEN)
-    MATHWORKS_ACCOUNT: $(MATHWORKS_ACCOUNT)
+    command: runMySimulinkTests
 - task: PublishBuildArtifacts@1
   inputs:
     pathToPublish: test-results/results.pdf
