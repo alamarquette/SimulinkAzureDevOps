@@ -24,14 +24,16 @@ steps:
     MATHWORKS_TOKEN: $(MATHWORKS_TOKEN)
     MATHWORKS_ACCOUNT: $(MATHWORKS_ACCOUNT)
 - task: PublishBuildArtifacts@1
+  condition: succeededOrFailed()
   inputs:
     pathToPublish: test-results/results.mldatx
 - task: PublishTestResults@2
   condition: succeededOrFailed()
   inputs:
-    testResultsFiles: test-results/results.xml
+    testResultsFiles: test-results/results.mldatx
 
 - task: PublishCodeCoverageResults@1
+  condition: succeededOrFailed()
   inputs:
     codeCoverageTool: Cobertura
     summaryFileLocation: model-coverage/coverage.xml
