@@ -15,7 +15,7 @@ pool:
 steps:
 - task: InstallMATLAB@0
   inputs:
-    release: R2022b
+    release: R2023a
 - task: RunMATLABCommand@0
   inputs:
     command: runMySimulinkTests
