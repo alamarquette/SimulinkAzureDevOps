@@ -18,7 +18,6 @@ steps:
     release: R2023a
 - task: RunMATLABTests@0
   inputs:
-    testResultsSimulinkTest: test-results/results.mldatx
     modelCoverageCobertura: model-coverage/coverage.xml
   env:
     MATHWORKS_TOKEN: $(MATHWORKS_TOKEN)
@@ -26,11 +25,11 @@ steps:
 - task: PublishBuildArtifacts@1
   condition: succeededOrFailed()
   inputs:
-    pathToPublish: test-results/results.mldatx
+    pathToPublish: test-results/results.pdf
 - task: PublishTestResults@2
   condition: succeededOrFailed()
   inputs:
-    testResultsFiles: test-results/results.mldatx
+    testResultsFiles: test-results/results.pdf
 
 - task: PublishCodeCoverageResults@1
   condition: succeededOrFailed()
