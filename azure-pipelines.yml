@@ -27,7 +27,7 @@ steps:
 - task: PublishBuildArtifacts@1
   condition: succeededOrFailed()
   inputs:
-    pathToPublish: test-results/results.pdf
+    pathToPublish: test-results/results.mldatx
 - task: PublishTestResults@2
   condition: succeededOrFailed()
   inputs:
