@@ -18,7 +18,7 @@ steps:
     release: R2023a
 - task: RunMATLABTests@0
   inputs:
-    testResultsPDF: test-results/results.pdf
+    testResultsSimulinkTest: test-results/results.mldatx
     testResultsJUnit: test-results/results.xml
     modelCoverageCobertura: model-coverage/coverage.xml
   env:
